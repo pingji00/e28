@@ -1,6 +1,6 @@
 # Project 1
 + By: Ping Ji
-+ Production URL: <http://p1.ping00.com>
++ Production URL: <http://p1.ping0.me>
 
 ## Outside resources
 none
