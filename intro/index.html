@@ -19,15 +19,20 @@
         <div>
             <label>Your name? <input type="text" v-model='playerName'></label>
             <p v-if='playerName'>Player: {{ playerName }}</p>
+            <p v-else>Enter your name to play the game</p>
         </div>
-        <div>
+        <div v-show="playerName">
             <label>Your guess? <input type="text" v-model='guess'></label>
             <button v-on:click='guesses.push(guess)'>guess</button>
             <ul>
-                <li v-for='thisGuess in guesses'>{{thisGuess}}</li>
+                <li v-for='(thisGuess, index) in guesses'>{{thisGuess}}'s order is {{index}}</li>
             </ul>
-            <p>{{guesses}}</p>
+
         </div>
+
+        <ul>
+            <li v-for='value in guessesDetailed'>{{value.guess}} is {{value.result}}</li>
+        </ul>
     </div>
 </body>
 

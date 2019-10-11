@@ -1,18 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
-    <script src="script.js" defer></script>
-    <link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
+	<title>P1</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" defer></script>
+    <script src="js/script.js" defer></script>
+	<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
+	<div id="app" v-cloak>
+		<p>{{ welMessage }}</p> <input type="text" v-model.lazy="playerName"><button>Enter</button>
+		<div v-if='playerName'>
+			<p>Player {{ playerName }}! Please choose the difficulty Levels.</p>
+			<select name="level" id="level" v-model="level">
+				<option v-for="(value, name) in levelOptions">{{ name }}</option>
+			</select>
+		</div>
 
+		<div>
+			<div v-if="gamebody">
+				<p>You choosed level of {{ level }}. <br>I have a number in my mind. It's a integer that between 1 to {{ levelNumber }}. Now try to guess it</p>
+				<p class="guess-times">You can guess <span class="chance">{{ chance }}</span> more time{{ timeplural }}</p>
+				<input type="number" id="filledNumber"  placeholder="Give me a number..." v-model.number.lazy="inputNumber">
+				<button v-on:click="guess">guess</button>
+			</div>
+			<ul v-bind:class="missed ? wrongClass : correctClass">
+				<li v-for="result in results">{{ result }}</li>
+			</ul>
+		</div>
+	</div>
 </body>
-
 </html>

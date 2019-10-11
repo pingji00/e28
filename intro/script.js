@@ -3,6 +3,11 @@ let app = new Vue({
     data: {
         'playerName': null,
         'guess': null,
-        'guesses': []
-    }
+        'guesses': [],
+        'guessesDetailed': [
+            { guess: 15, result: 'low' },
+            { guess: 80, result: 'high' },
+            { guess: 30, result: 'low' },
+        ]
+    },
 });
