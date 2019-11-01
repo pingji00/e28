@@ -1,0 +1,39 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>P2</title>
+	<script src='/js/script.js' defer></script>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+	<div id="app" v-cloak>
+		<p>{{ welMessage }}</p> <input type="text" v-model.lazy="playerName"><button>Enter</button>
+		<div v-if='playerName'>
+			<p>Player {{ playerName }}! Please choose the difficulty Levels.</p>
+			<select name="level" id="level" v-model="level">
+				<option v-for="(value, name) in levelOptions">{{ name }}</option>
+			</select>
+		</div>
+
+		<div>
+			<div v-if="gamebody">
+				<p>You choosed level of {{ level }}. <br>I have a number in my mind. It's a integer that between 1 to
+					{{ levelNumber }}. Now try to guess it</p>
+				<p class="guess-times">You can guess <span class="chance">{{ chance }}</span> more time{{ timeplural }}
+				</p>
+				<input type="number" id="filledNumber" placeholder="Give me a number..."
+					v-model.number.lazy="inputNumber">
+				<button v-on:click="guess">guess</button>
+			</div>
+			<ul v-bind:class="missed ? wrongClass : correctClass">
+				<guess-result v-for="result in results" v-bind:key="result" v-bind:result="result"></guess-result>
+			</ul>
+		</div>
+	</div>
+</body>
+
+</html>

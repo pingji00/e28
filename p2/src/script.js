@@ -1,5 +1,11 @@
+import Vue from 'vue';
+import GuessResult from './components/GuessResult.vue'
+
 var app = new Vue({
     el: '#app',
+    components: {
+        'guess-result': GuessResult
+    },
     data: {
         welMessage: "Hi, there! Please enter your name",
         playerName: null,

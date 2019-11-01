@@ -1,3 +1,14 @@
+Vue.component('guess-result', {
+    data: function () {
+        return {
+
+        }
+    },
+    props: ["result"],
+    template: '#guess-result',
+
+});
+
 var app = new Vue({
     el: '#app',
     data: {
