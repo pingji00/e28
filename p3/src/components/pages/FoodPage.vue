@@ -8,8 +8,8 @@
             class='product-thumb'
             :alt='"food image of " + food.name'
             :src='"./../../assets/images/foods/" + food.id + ".jpg"'>
-        <p class="calories"><strong>Calories</strong> {{ food.nutrition100g["energy"] }}  (per 100g)</p>
-        <dl>
+        <p class="calories" v-if='food.nutrition100g'><strong>Calories</strong> {{ food.nutrition100g["energy"] }}  (per 100g)</p>
+        <dl v-if='food.nutrition100g'>
             <dt>carbohydrate</dt>
             <dd>{{ food.nutrition100g["carbohydrate"] }}</dd>
             <dt>fat</dt>
@@ -39,7 +39,6 @@ export default {
             food: null,
             nutrition100g: null,
             addAlert: false,
-            energy:null
         }
     },
     mounted() {
