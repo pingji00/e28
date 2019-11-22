@@ -1,4 +1,4 @@
-# p3
+# zipfoods
 
 ## Project setup
 ```
@@ -22,3 +22,6 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### Data Source
+https://github.com/noizwaves/nutrition/blob/master/data/food.json
