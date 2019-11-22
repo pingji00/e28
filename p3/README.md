@@ -1,27 +1,14 @@
-# zipfoods
+# Project 3
++ By: Ping Ji
++ Production URL: <http://p3.ping0.me>
 
-## Project setup
-```
-npm install
-```
+## Outline of features
++ Homepage that shows a list of categories
++ Individual Page to show Nutrition of the food
++ Add Certain Food to the Plate
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Outside resources
++ data source: <https://github.com/noizwaves/nutrition/blob/master/data/food.json>
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-### Data Source
-https://github.com/noizwaves/nutrition/blob/master/data/food.json
+## Notes for instructor
++ It should be able to calculate the total calories for the foods in plate, but I ran out of time at this time. 
