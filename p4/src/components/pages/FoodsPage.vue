@@ -5,7 +5,7 @@
             <food-item
                 v-for="food in foods"
                 :food='food'
-                :key='food.name'
+                :key='food.id'
             ></food-item>
         </div>
     </div>

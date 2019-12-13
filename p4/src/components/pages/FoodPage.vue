@@ -25,7 +25,7 @@
             <div class="alert" v-if='addAlert'>{{ food.name }} is added</div>
         </transition>
 
-        <router-link :to='{name: "foods"}'>Back to all foods list</router-link>
+        <router-link :to='"../../pages/foods"'>Back to all foods list</router-link>
     </div>
 </template>
 
@@ -33,7 +33,7 @@
 import * as app from './../../app.js'
 export default {
     name:'FoodPage',
-    props:['id',],
+    props:['id'],
     data: function() {
         return {
             // food: null,
@@ -53,7 +53,7 @@ export default {
             let plate = new app.Plate();
             plate.add(productID);
             // app.store.plateCount = plate.count();
-            this.$store.commit('updatePlateCount', 1);
+            this.$store.commit('setPlateCount', plate.count());
             this.addAlert = true;
             setTimeout(()=>(this.addAlert = false), 1000)
         }

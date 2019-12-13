@@ -21,11 +21,6 @@ export default {
             plate:null,
         };
     },
-    computed: {
-        foods: function() {
-            return this.$store.state.foods;
-        }
-    },
     methods: {
         getFoodDetails(productId) {
             return this.foods.find( ({id}) => id === productId );
@@ -33,6 +28,11 @@ export default {
         removeFromPlate: function(productId) {
             this.plate.remove(productId);
             this.$store.commit('setPlateCount', this.plate.count());
+        }
+    },
+    computed: {
+        foods: function() {
+            return this.$store.state.foods;
         }
     },
     mounted() {

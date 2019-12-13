@@ -44,7 +44,7 @@ $purple: #B10DC9;
 $maroon: #85144B;
 
 $white: #FFFFFF;
-$silver: #DDDDDD;
+$silver: #eeeeee;
 $gray: #AAAAAA;
 $black: #111111;
 
@@ -127,6 +127,7 @@ PAGE SPECIFIC
 
         a {
             text-decoration: none;
+
         }
 
         .food-name {
@@ -141,6 +142,10 @@ PAGE SPECIFIC
             width: 200px;
             margin: 10px;
             border-radius: 5px;
+            &:hover {
+                box-shadow: 0 0 5px 1px rgba(0, 0, 0, .2);;
+
+            }
         }
 
     }
