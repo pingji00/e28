@@ -21,7 +21,7 @@ No.
 
 ### Are there any parts of the code that you found interesting or taught you something new?
 
-In componont "Bitcoin.vue", Atanaa use `async` before `mounted()`. I have to read the manual to learn about it. 
+In componont "Bitcoin.vue", Atana use `async` before `mounted()` to not blocking the whole application. I have to read the manual to learn more about `async` and `await`. Thanks Atanas.
 
 
 ### Are there any best practices discussed in course material that you feel were not addressed in the code?
