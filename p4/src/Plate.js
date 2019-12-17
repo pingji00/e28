@@ -4,6 +4,7 @@ export default class Plate {
     /**
      * 
      */
+    
     constructor() {
         // Extract JSON plate string from local storage
         let plate = localStorage.getItem('plate');

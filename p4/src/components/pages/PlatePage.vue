@@ -19,6 +19,8 @@ export default {
         return {
             items:[],
             plate:null,
+            // foods:[]
+
         };
     },
     methods: {
@@ -27,6 +29,7 @@ export default {
         },
         removeFromPlate: function(productId) {
             this.plate.remove(productId);
+            // app.store.plateCount = this.plate.count();
             this.$store.commit('setPlateCount', this.plate.count());
         }
     },
@@ -38,8 +41,11 @@ export default {
     mounted() {
         this.plate = new app.Plate();
         this.items = this.plate.getItems();
-    },
-
+        console.log(this.items);
+    //     this.foods = app.axios
+    //         .get(app.config.api + 'foods')
+    //         .then( response => ( this.foods = response.data ) );
+    }
 };
 </script>
 

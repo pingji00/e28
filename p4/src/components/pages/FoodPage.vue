@@ -5,7 +5,7 @@
         </div>
         <img
             v-if='food.id'
-            class='product-thumb'
+            class='food-thumb'
             :alt='"food image of " + food.name'
             :src='"./../../assets/images/foods/" + food.id + ".jpg"'>
         <p class="calories" v-if='food.nutrition100g'><strong>Calories</strong> {{ food.nutrition100g["energy"] }}  (per 100g)</p>
@@ -21,11 +21,10 @@
         <div class="button-wrapper">
         <button @click='addToPlate(food.id)'>Add to your plate</button>
         </div>
+        <router-link :to='{name: "foods"}'>Back to all foods list</router-link>
         <transition name="fade">
             <div class="alert" v-if='addAlert'>{{ food.name }} is added</div>
         </transition>
-
-        <router-link :to='"../../pages/foods"'>Back to all foods list</router-link>
     </div>
 </template>
 
@@ -33,7 +32,7 @@
 import * as app from './../../app.js'
 export default {
     name:'FoodPage',
-    props:['id'],
+    props:['id',],
     data: function() {
         return {
             // food: null,
@@ -42,11 +41,14 @@ export default {
         }
     },
     computed: {
-        food: function() {
+        food() {
             return this.$store.getters.getFoodById(this.id);
         }
     },
     mounted() {
+        // this.food = app.axios
+        //     .get(app.config.api + 'foods/' + this.id)
+        //     .then( response => ( this.food = response.data ) );
     },
     methods: {
         addToPlate: function(productID) {

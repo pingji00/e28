@@ -22,17 +22,21 @@ export default {
     components: { FoodItem },
     data: function() {
         return {
+            // foods: null
         }
     },
-
     mounted() {
-
+        // this.foods = app.axios
+        //     .get(app.config.api + 'foods')
+        //     .then( response => ( this.foods = response.data ) );
+        
     },
     computed: {
         foods: function() {
             return this.$store.state.foods;
         }
     }
+
 }
 </script>
 

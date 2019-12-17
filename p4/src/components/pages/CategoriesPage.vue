@@ -12,6 +12,7 @@
 // const axios = require('axios');
 
 export default {
+
     name:'CategoriesPage',
     data: function() {
         return {

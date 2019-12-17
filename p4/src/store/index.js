@@ -22,15 +22,15 @@ export default new Vuex.Store({
     },
     actions: {
         setFoods(context) {
-            this.foods = app.axios
-            .get(app.config.api + 'foods')
-            .then( response => { context.commit('setFoods', response.data) } );
+            app.axios.get(app.config.api + 'foods').then(response => {
+                context.commit('setFoods', response.data);
+            });
         }
     },
     getters: {
         getFoodById(state) {
-            return function(id) {
-                return state.foods.find( food => food.id = id );
+            return function (id) {
+                return state.foods.find(food => food.id == id);
             }
         }
     }
