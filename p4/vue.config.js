@@ -1,5 +1,5 @@
 // module.exports = {
 //     devServer: {
-//         host: 'zipfoods.loc'
+//       proxy: 'http://localhost:4000'
 //     }
-// }
+//   }

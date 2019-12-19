@@ -1,7 +1,7 @@
 <template>
     <div class="food">
-        <router-link :to='{ name:"food", params: { id: food.id }}'>
-            <div class="food-name">{{ food.name }}</div>
+        <router-link data-test='food-link' :to='{ name:"food", params: { id: food.id }}'>
+            <div data-test='food-name' class="food-name">{{ food.name }}</div>
             <img
                 class='food-thumb'
                 :src="require('../assets/images/foods/' + food.id + '.jpg')"

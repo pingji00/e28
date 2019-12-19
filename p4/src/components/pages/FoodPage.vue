@@ -8,18 +8,21 @@
             class='food-thumb'
             :alt='"food image of " + food.name'
             :src='"./../../assets/images/foods/" + food.id + ".jpg"'>
-        <p class="calories" v-if='food.nutrition100g'><strong>Calories</strong> {{ food.nutrition100g["energy"] }}  (per 100g)</p>
-        <dl v-if='food.nutrition100g'>
+        <p class="calories" v-if='food.nutrition100g'><strong>Calories</strong> {{ food.nutrition100g["energy"] }}  <span>per 100g</span> </p>
+        <dl v-if='food.nutrition100g' data-test='nutrition'>
             <dt>carbohydrate</dt>
-            <dd>{{ food.nutrition100g["carbohydrate"] }}</dd>
+            <dd>{{ food.nutrition100g["carbohydrate"] }}g</dd>
             <dt>fat</dt>
-            <dd>{{ food.nutrition100g["fat"] }}</dd>
+            <dd>{{ food.nutrition100g["fat"] }}g</dd>
             <dt>protein</dt>
-            <dd>{{ food.nutrition100g["protein"] }}</dd>
+            <dd>{{ food.nutrition100g["protein"] }}g</dd>
         </dl>
 
         <div class="button-wrapper">
-        <button @click='addToPlate(food.id)'>Add to your plate</button>
+        <!-- <label>Add <input type='text' v-model='quantity'></label> oz to my plate -->
+        <button data-test="add-to-plate-btn" @click='addToPlate(food.id)'>Add 
+            <!-- {{quantity}}<span v-if='quantity != null'>oz</span>  -->
+            to your plate</button>
         </div>
         <router-link :to='{name: "foods"}'>Back to all foods list</router-link>
         <transition name="fade">
@@ -32,12 +35,13 @@
 import * as app from './../../app.js'
 export default {
     name:'FoodPage',
-    props:['id',],
+    props:['id'],
     data: function() {
         return {
             // food: null,
             nutrition100g: null,
             addAlert: false,
+            // quantity:null
         }
     },
     computed: {
@@ -76,24 +80,31 @@ export default {
             font-size: 1.5em;
             margin:1em auto;
             text-align: left;
+            span {
+                display: inline-block;
+                font-size: 0.5em;
+                width: 2em;    
+            }
         }
         dl {
         border-top: 2px solid black;
         border-bottom: 2px solid black;
         display:grid;
         margin: 0 auto 1em;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 2fr 1fr 2fr 1fr 2fr;
+
 
         dt {
             font-weight: 600; 
-            justify-self: start;
-            align-self: center;          
-            padding: 0.5em 0;
-        }
-        dl {
             justify-self: end;
             align-self: center;          
             padding: 0.5em 0;
+        }
+        dd {
+            justify-self: start;
+            align-self: center;          
+            padding: 0.5em 0;
+            margin-left: 0.5em;
         }
     }
 }

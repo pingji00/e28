@@ -2,10 +2,34 @@
     <div id='plate-page'>
         <h1>Your Plate</h1>
         <div v-if='items.length == 0'>No items</div>
-        <ul v-else-if='foods.length > 0' class='item-in-plate'>
-            <li v-for='item in items' :key='item.id'>
-                {{ item.quantity }} x {{ getFoodDetails(item.id)['name'] }}
-                <button @click='removeFromPlate(item.id)'>Remove</button>
+        <ul data-test='plate-count' v-else-if='foods.length > 0' class='item-in-plate'>
+            <li class="food-in-plate">
+                <div>Food</div>
+                <div>Calories</div>
+                <div>Carbohydrate</div>
+                <div>Fat</div>
+                <div>Protein</div>
+                <div></div>
+            </li>
+            <li class="food-in-plate" v-for='item in items' :key='item.id'>
+                <div>
+                    {{ item.quantity }} <span class="oz">oz</span> {{ getFoodDetails(item.id)['name'] }}
+                    <!-- <label><span class="wps">weight per serve</span> <input type='text' v-model='weight'></label> oz -->
+                    <!-- {{weight}}<span v-if='weight != null'>oz</span> -->
+                </div>
+                <div>
+                    {{ getFoodDetails(item.id)['nutrition100g']['energy'] }}
+                </div>
+                <div>
+                    {{ getFoodDetails(item.id)['nutrition100g']['carbohydrate'] }}g
+                </div>
+                <div>
+                    {{ getFoodDetails(item.id)['nutrition100g']['fat'] }}g
+                </div>
+                <div>
+                    {{ getFoodDetails(item.id)['nutrition100g']['protein'] }}g
+                </div>
+                <button data-test='rm-from-plate' @click='removeFromPlate(item.id)'>Remove</button>
             </li>
         </ul>
     </div>
@@ -19,8 +43,7 @@ export default {
         return {
             items:[],
             plate:null,
-            // foods:[]
-
+            // weight:null
         };
     },
     methods: {
@@ -57,6 +80,8 @@ export default {
         font: normal bold 1.2em/1.3 sans-serif;
         list-style-type: none;
         li {
+            position: relative;
+            text-align: left;
             padding: 0.5em 0 1em;
             border-bottom: 1px solid black;
             &:first-child {
@@ -71,5 +96,26 @@ export default {
                 padding: 0.2em 1em 0.3em;
             }
         }
+    }
+    .food-in-plate {
+        display: grid;
+        grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1fr;
+        &:first-child {
+            background-color: #efefef;
+            font-size: 0.6em;
+            // font-weight: normal;
+        }
+    }
+    .oz{
+        font-size: 0.5em;
+        font-weight: normal;
+        position: relative;
+        bottom: 0.7em;
+    }
+    .wps {
+        font: normal normal 0.3em/1 sans-serif;
+        display: inline-block;
+        width: 7em;
+        text-align: left;
     }
 </style>

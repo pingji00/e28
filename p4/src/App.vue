@@ -5,7 +5,10 @@
         <ul>
             <li v-for='link in links' :key='link'>
                 <router-link :to='{ name: link }' exact>{{ link }}
-                  <span v-if='link=="plate"'>({{ plateCount }})</span>
+                  <span
+                    data-test="plate-count"
+                    v-if='link=="plate"'>({{ plateCount }})
+                  </span>
                 </router-link>
             </li>
         </ul>
@@ -24,7 +27,7 @@ export default {
   },
   data: function() {
       return {
-        links: ['home', 'foods','categories','plate'],
+        links: ['home', 'foods','categories','plate','feedback'],
         products: [],
 
       }
