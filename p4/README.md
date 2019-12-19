@@ -1,6 +1,6 @@
 # Project 34
 + By: Ping Ji
-+ Production URL: <http://p4.ping0.me>
++ Production URL: <https://p4.ping0.me/>
 
 ## Outline of features
 + Homepage that shows a list of categories
